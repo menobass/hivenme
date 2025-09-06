@@ -184,6 +184,56 @@ class HiveandMe {
                 </div>
               </div>
               
+              <!-- Pending Author Rewards Section -->
+              <div class="pending-rewards-section">
+                <div class="pending-rewards-card">
+                  <h2>📝 PENDING AUTHOR REWARDS</h2>
+                  <p class="section-description">Active posts and comments with projected 7-day rewards</p>
+                  
+                  <div class="rewards-summary">
+                    <div class="summary-item">
+                      <span class="summary-label">Total Pending:</span>
+                      <span id="totalAuthorPending" class="summary-value">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                      <span class="summary-label">Active Posts:</span>
+                      <span id="activePosts" class="summary-count">0</span>
+                    </div>
+                  </div>
+                  
+                  <div class="pending-list-container">
+                    <div id="authorRewardsList" class="pending-list">
+                      <!-- Author rewards will be populated here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Pending Curation Rewards Section -->
+              <div class="pending-rewards-section">
+                <div class="pending-rewards-card">
+                  <h2>👍 PENDING CURATION REWARDS</h2>
+                  <p class="section-description">Votes on active posts with projected curation rewards</p>
+                  
+                  <div class="rewards-summary">
+                    <div class="summary-item">
+                      <span class="summary-label">Total Pending:</span>
+                      <span id="totalCurationPending" class="summary-value">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                      <span class="summary-label">Active Votes:</span>
+                      <span id="activeVotes" class="summary-count">0</span>
+                    </div>
+                  </div>
+                  
+                  <div class="pending-list-container">
+                    <div id="curationRewardsList" class="pending-list">
+                      <!-- Curation rewards will be populated here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               <!-- Price Section -->
               <div class="price-section">
                 <div class="price-blocks">
@@ -689,8 +739,88 @@ class HiveandMe {
         hbdSavings: (Math.random() * 200).toFixed(3),
         hbdApr: '15.00',
         accountValue: (Math.random() * 50000).toFixed(2)
-      }
+      },
+      // Pending rewards data
+      pendingAuthorRewards: this.generateMockAuthorRewards(username),
+      pendingCurationRewards: this.generateMockCurationRewards(username)
     };
+  }
+
+  generateMockAuthorRewards(username) {
+    const mockPosts = [
+      'My Journey with Hive Blockchain: A Year in Review',
+      'Understanding Cryptocurrency Market Trends in 2025',
+      'Web3 Development: Building the Future',
+      'The Art of Content Creation on Decentralized Platforms',
+      'Hive vs Traditional Social Media: A Comparison',
+      'Photography Tips for Blockchain Content Creators',
+      'Digital Nomad Life: Working from Anywhere',
+      'The Future of Decentralized Finance (DeFi)',
+      'Building Community in the Web3 Era',
+      'Lessons Learned from Blockchain Development'
+    ];
+
+    const rewards = [];
+    const numPosts = Math.floor(Math.random() * 5) + 2; // 2-6 posts
+
+    for (let i = 0; i < numPosts; i++) {
+      const daysAgo = Math.floor(Math.random() * 6); // 0-5 days ago
+      const created = new Date(Date.now() - daysAgo * 24 * 60 * 60 * 1000);
+      const currentPayout = (Math.random() * 15).toFixed(2);
+      const projectedPayout = (Math.random() * 8).toFixed(2);
+
+      rewards.push({
+        title: mockPosts[Math.floor(Math.random() * mockPosts.length)],
+        author: username,
+        created: created.toISOString(),
+        currentPayout: currentPayout,
+        projectedPayout: projectedPayout,
+        permlink: `post-${i}-${Date.now()}`
+      });
+    }
+
+    return rewards.sort((a, b) => new Date(b.created) - new Date(a.created));
+  }
+
+  generateMockCurationRewards(username) {
+    const mockAuthors = ['alice', 'bob', 'charlie', 'diana', 'eve', 'frank', 'grace', 'henry'];
+    const mockTitles = [
+      'Exploring the Depths of Ocean Photography',
+      'Cooking Traditional Recipes with a Modern Twist',
+      'The Science Behind Climate Change Solutions',
+      'Travel Photography: Capturing Culture and Beauty',
+      'Sustainable Living in Urban Environments',
+      'The Psychology of Human Behavior',
+      'Digital Art in the NFT Revolution',
+      'Fitness and Wellness for Busy Professionals',
+      'The History of Ancient Civilizations',
+      'Innovation in Renewable Energy Technology'
+    ];
+
+    const rewards = [];
+    const numVotes = Math.floor(Math.random() * 8) + 3; // 3-10 votes
+
+    for (let i = 0; i < numVotes; i++) {
+      const daysAgo = Math.floor(Math.random() * 6); // 0-5 days ago
+      const postCreated = new Date(Date.now() - daysAgo * 24 * 60 * 60 * 1000);
+      const voteTime = new Date(postCreated.getTime() + Math.random() * 24 * 60 * 60 * 1000); // Voted within 24h of post
+      const currentPayout = (Math.random() * 25).toFixed(2);
+      const projectedCuration = (Math.random() * 2).toFixed(2);
+      const voteWeight = Math.floor(Math.random() * 100) + 1; // 1-100%
+
+      rewards.push({
+        title: mockTitles[Math.floor(Math.random() * mockTitles.length)],
+        author: mockAuthors[Math.floor(Math.random() * mockAuthors.length)],
+        created: postCreated.toISOString(),
+        voteTime: voteTime.toISOString(),
+        currentPayout: currentPayout,
+        projectedCuration: projectedCuration,
+        voteWeight: voteWeight,
+        permlink: `vote-${i}-${Date.now()}`
+      });
+    }
+
+    return rewards.sort((a, b) => new Date(b.voteTime) - new Date(a.voteTime));
   }
 
   getMockData(username) {
@@ -923,8 +1053,130 @@ class HiveandMe {
     // Account value
     accountValue.textContent = `$ ${data.wallet?.accountValue || '0.00'}`;
 
+    // Display pending rewards
+    this.displayPendingAuthorRewards(data.pendingAuthorRewards || []);
+    this.displayPendingCurationRewards(data.pendingCurationRewards || []);
+
     accountData.classList.remove('hidden');
     this.currentAccount = data.username;
+  }
+
+  displayPendingAuthorRewards(rewards) {
+    const totalAuthorPending = document.getElementById('totalAuthorPending');
+    const activePosts = document.getElementById('activePosts');
+    const authorRewardsList = document.getElementById('authorRewardsList');
+
+    // Calculate totals
+    const totalPending = rewards.reduce((sum, reward) => sum + parseFloat(reward.projectedPayout || 0), 0);
+    
+    totalAuthorPending.textContent = `$${totalPending.toFixed(2)}`;
+    activePosts.textContent = rewards.length;
+
+    // Display rewards list
+    if (rewards.length === 0) {
+      authorRewardsList.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">📝</div>
+          <div class="empty-state-text">No pending author rewards</div>
+        </div>
+      `;
+      return;
+    }
+
+    authorRewardsList.innerHTML = rewards.map(reward => `
+      <div class="pending-item">
+        <div class="item-content">
+          <div class="item-title">${reward.title}</div>
+          <div class="item-meta">
+            <span class="item-author">@${reward.author}</span>
+            <span class="item-time">${this.formatTimeAgo(reward.created)}</span>
+            <span class="time-left">${this.calculateTimeLeft(reward.created)} left</span>
+          </div>
+        </div>
+        <div class="item-rewards">
+          <div class="current-payout">$${parseFloat(reward.currentPayout || 0).toFixed(2)}</div>
+          <div class="projected-payout">+$${parseFloat(reward.projectedPayout || 0).toFixed(2)}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  displayPendingCurationRewards(rewards) {
+    const totalCurationPending = document.getElementById('totalCurationPending');
+    const activeVotes = document.getElementById('activeVotes');
+    const curationRewardsList = document.getElementById('curationRewardsList');
+
+    // Calculate totals
+    const totalPending = rewards.reduce((sum, reward) => sum + parseFloat(reward.projectedCuration || 0), 0);
+    
+    totalCurationPending.textContent = `$${totalPending.toFixed(2)}`;
+    activeVotes.textContent = rewards.length;
+
+    // Display rewards list
+    if (rewards.length === 0) {
+      curationRewardsList.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">👍</div>
+          <div class="empty-state-text">No pending curation rewards</div>
+        </div>
+      `;
+      return;
+    }
+
+    curationRewardsList.innerHTML = rewards.map(reward => `
+      <div class="pending-item">
+        <div class="item-content">
+          <div class="item-title">${reward.title}</div>
+          <div class="item-meta">
+            <span class="item-author">by @${reward.author}</span>
+            <span class="item-time">${this.formatTimeAgo(reward.voteTime)}</span>
+            <span class="vote-weight">${reward.voteWeight}% vote</span>
+            <span class="time-left">${this.calculateTimeLeft(reward.created)} left</span>
+          </div>
+        </div>
+        <div class="item-rewards">
+          <div class="current-payout">$${parseFloat(reward.currentPayout || 0).toFixed(2)}</div>
+          <div class="projected-payout">+$${parseFloat(reward.projectedCuration || 0).toFixed(2)}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  formatTimeAgo(dateString) {
+    const now = new Date();
+    const date = new Date(dateString);
+    const diffMs = now - date;
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+    const diffMinutes = Math.floor(diffMs / (1000 * 60));
+
+    if (diffDays > 0) {
+      return `${diffDays}d ago`;
+    } else if (diffHours > 0) {
+      return `${diffHours}h ago`;
+    } else {
+      return `${diffMinutes}m ago`;
+    }
+  }
+
+  calculateTimeLeft(createdDate) {
+    const created = new Date(createdDate);
+    const payoutDate = new Date(created.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 days after creation
+    const now = new Date();
+    const timeLeftMs = payoutDate - now;
+
+    if (timeLeftMs <= 0) {
+      return '0h';
+    }
+
+    const daysLeft = Math.floor(timeLeftMs / (1000 * 60 * 60 * 24));
+    const hoursLeft = Math.floor((timeLeftMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    if (daysLeft > 0) {
+      return `${daysLeft}d ${hoursLeft}h`;
+    } else {
+      return `${hoursLeft}h`;
+    }
   }
 
   generateRandomDayReward() {
