@@ -1,0 +1,15 @@
+{
+  "name": "hiveandme",
+  "private": true,
+  "version": "0.1.0",
+  "description": "HiveandMe - A web application for viewing detailed Hive blockchain account statistics",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.5.5"
+  }
+}
