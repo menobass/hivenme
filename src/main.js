@@ -89,7 +89,10 @@ class HiveandMe {
                   </div>
                 </div>
               </div>
-              
+            </div>
+
+            <!-- Stats Section - Full Width Below -->
+            <div class="bottom-content">
               <!-- Wallet Section -->
               <div class="wallet-section">
                 <div class="wallet-card">
@@ -108,7 +111,6 @@ class HiveandMe {
                         <span class="detail-label">Staked HIVE - Hive Power (HP)</span>
                         <div class="detail-value">
                           <span id="stakedHive" class="value">0.000</span>
-                          <button class="action-btn stake-btn">⚡ SEND</button>
                         </div>
                       </div>
                       <p class="detail-description">Always a reward on posts. Exchanging Hive for Hive Power is called "Powering Up" or "Staking".</p>
@@ -123,7 +125,6 @@ class HiveandMe {
                         <span class="detail-label">Delegated HIVE</span>
                         <div class="detail-value">
                           <span id="delegatedHive" class="value negative">0.000</span>
-                          <button class="action-btn details-btn">📋 DETAILS</button>
                         </div>
                       </div>
                       <p class="detail-description">Staked tokens delegated between users.</p>
@@ -132,7 +133,6 @@ class HiveandMe {
                         <span class="detail-label">HIVE Savings</span>
                         <div class="detail-value">
                           <span id="hiveSavings" class="value">0.000</span>
-                          <button class="action-btn withdraw-btn">💰 WITHDRAW</button>
                         </div>
                       </div>
                       <p class="detail-description">Balance is subject to 3 days withdraw waiting period.</p>
@@ -152,7 +152,6 @@ class HiveandMe {
                         <span class="detail-label">Staked HBD</span>
                         <div class="detail-value">
                           <span id="stakedHbd" class="value">0.000</span>
-                          <button class="action-btn unstake-btn">⬇️ UNSTAKE</button>
                         </div>
                       </div>
                       <div class="apr-info">
@@ -168,7 +167,6 @@ class HiveandMe {
                         <span class="detail-label">Staked HBD</span>
                         <div class="detail-value">
                           <span id="hbdSavings" class="value">0.000</span>
-                          <button class="action-btn unstake-btn">⬇️ UNSTAKE</button>
                         </div>
                       </div>
                       <p class="detail-description">Balance is subject to 3 days unstake (withdraw) waiting period.</p>
@@ -185,10 +183,7 @@ class HiveandMe {
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Stats Section - Full Width Below -->
-            <div class="bottom-content">
+              
               <!-- Price Section -->
               <div class="price-section">
                 <div class="price-blocks">

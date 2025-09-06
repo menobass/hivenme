@@ -451,13 +451,17 @@ body {
 
 /* Wallet Section */
 .wallet-section {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.wallet-card {
   background: var(--card-background);
   color: var(--text-primary);
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-color);
-  margin-bottom: 1.5rem;
 }
 
 .wallet-card h2 {
@@ -568,48 +572,6 @@ body {
   color: var(--accent-color);
   cursor: pointer;
   font-size: 0.9rem;
-}
-
-.action-btn {
-  background: var(--accent-color);
-  color: white;
-  border: none;
-  padding: 0.3rem 0.8rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.action-btn:hover {
-  background: #2980b9;
-}
-
-.stake-btn {
-  background: var(--success-color);
-}
-
-.stake-btn:hover {
-  background: #219a52;
-}
-
-.unstake-btn {
-  background: var(--error-color);
-}
-
-.unstake-btn:hover {
-  background: #c0392b;
-}
-
-.withdraw-btn {
-  background: var(--secondary-color);
-}
-
-.withdraw-btn:hover {
-  background: #1a252f;
 }
 
 .apr-info {
