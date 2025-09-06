@@ -89,6 +89,102 @@ class HiveandMe {
                   </div>
                 </div>
               </div>
+              
+              <!-- Wallet Section -->
+              <div class="wallet-section">
+                <div class="wallet-card">
+                  <h2>WALLET</h2>
+                  
+                  <!-- HIVE Token -->
+                  <div class="token-section">
+                    <div class="token-header">
+                      <span class="token-symbol">🔶 HIVE</span>
+                      <span id="hiveBalance" class="token-balance">0.000</span>
+                    </div>
+                    <p class="token-description">The primary token of the Hive Blockchain and often a reward on posts.</p>
+                    
+                    <div class="token-details">
+                      <div class="detail-row">
+                        <span class="detail-label">Staked HIVE - Hive Power (HP)</span>
+                        <div class="detail-value">
+                          <span id="stakedHive" class="value">0.000</span>
+                          <button class="action-btn stake-btn">⚡ SEND</button>
+                        </div>
+                      </div>
+                      <p class="detail-description">Always a reward on posts. Exchanging Hive for Hive Power is called "Powering Up" or "Staking".</p>
+                      
+                      <div class="effectiveness-row">
+                        <span class="effectiveness-text">Increases the more effectively you vote on posts</span>
+                        <span id="voteEffectiveness" class="effectiveness-value">+0.00 - 1%</span>
+                        <span class="info-icon">ℹ️</span>
+                      </div>
+                      
+                      <div class="detail-row">
+                        <span class="detail-label">Delegated HIVE</span>
+                        <div class="detail-value">
+                          <span id="delegatedHive" class="value negative">0.000</span>
+                          <button class="action-btn details-btn">📋 DETAILS</button>
+                        </div>
+                      </div>
+                      <p class="detail-description">Staked tokens delegated between users.</p>
+                      
+                      <div class="detail-row">
+                        <span class="detail-label">HIVE Savings</span>
+                        <div class="detail-value">
+                          <span id="hiveSavings" class="value">0.000</span>
+                          <button class="action-btn withdraw-btn">💰 WITHDRAW</button>
+                        </div>
+                      </div>
+                      <p class="detail-description">Balance is subject to 3 days withdraw waiting period.</p>
+                    </div>
+                  </div>
+                  
+                  <!-- HBD Token -->
+                  <div class="token-section hbd-section">
+                    <div class="token-header">
+                      <span class="token-symbol">💚 HBD (Hive Backed Dollars)</span>
+                      <span id="hbdBalance" class="token-balance">0.000</span>
+                    </div>
+                    <p class="token-description">Another Hive token which is often rewarded on posts.</p>
+                    
+                    <div class="token-details">
+                      <div class="detail-row">
+                        <span class="detail-label">Staked HBD</span>
+                        <div class="detail-value">
+                          <span id="stakedHbd" class="value">0.000</span>
+                          <button class="action-btn unstake-btn">⬇️ UNSTAKE</button>
+                        </div>
+                      </div>
+                      <div class="apr-info">
+                        <span class="apr-label">NEW!</span>
+                        <span class="apr-text">Staked HBD increases at</span>
+                        <span id="hbdApr" class="apr-value">15.00%</span>
+                        <span class="apr-text">APR as defined by the</span>
+                        <a href="#" class="witnesses-link">witnesses</a>
+                        <span class="info-icon">ℹ️</span>
+                      </div>
+                      
+                      <div class="detail-row">
+                        <span class="detail-label">Staked HBD</span>
+                        <div class="detail-value">
+                          <span id="hbdSavings" class="value">0.000</span>
+                          <button class="action-btn unstake-btn">⬇️ UNSTAKE</button>
+                        </div>
+                      </div>
+                      <p class="detail-description">Balance is subject to 3 days unstake (withdraw) waiting period.</p>
+                    </div>
+                  </div>
+                  
+                  <!-- Account Value -->
+                  <div class="account-value-section">
+                    <div class="account-value-header">
+                      <span class="value-label">Estimated Account Value</span>
+                      <span id="accountValue" class="account-value">$ 0.00</span>
+                    </div>
+                    <p class="value-description">USD value of all Hive tokens in your wallet.</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Stats Section - Full Width Below -->
@@ -450,7 +546,19 @@ class HiveandMe {
         fullVoteValue: '0.06',
         resourceCredits: '10.6',
         rcPercentage: '100.00',
-        postCount: 14097
+        postCount: 14097,
+        wallet: {
+          hiveBalance: '123.456',
+          stakedHive: '7290.911',
+          delegatedHive: '-512.883',
+          hiveSavings: '0.000',
+          voteEffectiveness: '+2.00 - 1%',
+          hbdBalance: '0.264',
+          stakedHbd: '0.000',
+          hbdSavings: '0.000',
+          hbdApr: '15.00',
+          accountValue: '1452.78'
+        }
       },
       'gtg': {
         reputation: 78.15,
@@ -470,7 +578,19 @@ class HiveandMe {
         fullVoteValue: '12.45',
         resourceCredits: '45.2',
         rcPercentage: '100.00',
-        postCount: 892
+        postCount: 892,
+        wallet: {
+          hiveBalance: '2456.789',
+          stakedHive: '125000.000',
+          delegatedHive: '5000.000',
+          hiveSavings: '1000.000',
+          voteEffectiveness: '+8.50 - 2%',
+          hbdBalance: '567.123',
+          stakedHbd: '200.000',
+          hbdSavings: '300.000',
+          hbdApr: '15.00',
+          accountValue: '28456.78'
+        }
       }
     };
 
@@ -492,7 +612,19 @@ class HiveandMe {
       fullVoteValue: (Math.random() * 0.15).toFixed(3),
       resourceCredits: (Math.random() * 20).toFixed(1),
       rcPercentage: '100.00',
-      postCount: Math.floor(Math.random() * 1000) + 100
+      postCount: Math.floor(Math.random() * 1000) + 100,
+      wallet: {
+        hiveBalance: (Math.random() * 5000).toFixed(3),
+        stakedHive: (Math.random() * 25000).toFixed(3),
+        delegatedHive: (Math.random() * 3000 - 1500).toFixed(3), // Can be negative
+        hiveSavings: (Math.random() * 500).toFixed(3),
+        voteEffectiveness: `+${(Math.random() * 5).toFixed(2)} - ${Math.floor(Math.random() * 3) + 1}%`,
+        hbdBalance: (Math.random() * 1000).toFixed(3),
+        stakedHbd: (Math.random() * 300).toFixed(3),
+        hbdSavings: (Math.random() * 150).toFixed(3),
+        hbdApr: '15.00',
+        accountValue: (Math.random() * 10000).toFixed(2)
+      }
     };
 
     return {
@@ -549,6 +681,19 @@ class HiveandMe {
           totalHBD: (Math.random() * 200).toFixed(0),
           totalUSD: (Math.random() * 400).toFixed(2)
         }
+      },
+      // Wallet data
+      wallet: userMock.wallet || {
+        hiveBalance: (Math.random() * 10000).toFixed(3),
+        stakedHive: (Math.random() * 50000).toFixed(3),
+        delegatedHive: (Math.random() * 5000 - 2500).toFixed(3), // Can be negative (delegated out)
+        hiveSavings: (Math.random() * 1000).toFixed(3),
+        voteEffectiveness: `+${(Math.random() * 10).toFixed(2)} - ${Math.floor(Math.random() * 5) + 1}%`,
+        hbdBalance: (Math.random() * 1000).toFixed(3),
+        stakedHbd: (Math.random() * 500).toFixed(3),
+        hbdSavings: (Math.random() * 200).toFixed(3),
+        hbdApr: '15.00',
+        accountValue: (Math.random() * 50000).toFixed(2)
       }
     };
   }
@@ -754,6 +899,34 @@ class HiveandMe {
         <div class="stat-value">${stat.value}</div>
       </div>
     `).join('');
+
+    // Wallet Section - populate wallet data
+    const hiveBalance = document.getElementById('hiveBalance');
+    const stakedHive = document.getElementById('stakedHive');
+    const delegatedHive = document.getElementById('delegatedHive');
+    const hiveSavings = document.getElementById('hiveSavings');
+    const voteEffectiveness = document.getElementById('voteEffectiveness');
+    const hbdBalance = document.getElementById('hbdBalance');
+    const stakedHbd = document.getElementById('stakedHbd');
+    const hbdSavings = document.getElementById('hbdSavings');
+    const hbdApr = document.getElementById('hbdApr');
+    const accountValue = document.getElementById('accountValue');
+
+    // HIVE wallet data
+    hiveBalance.textContent = `${data.wallet?.hiveBalance || '0.000'}`;
+    stakedHive.textContent = `${data.wallet?.stakedHive || '0.000'}`;
+    delegatedHive.textContent = `${data.wallet?.delegatedHive || '0.000'}`;
+    hiveSavings.textContent = `${data.wallet?.hiveSavings || '0.000'}`;
+    voteEffectiveness.textContent = `${data.wallet?.voteEffectiveness || '+0.00 - 1%'}`;
+
+    // HBD wallet data
+    hbdBalance.textContent = `${data.wallet?.hbdBalance || '0.000'}`;
+    stakedHbd.textContent = `${data.wallet?.stakedHbd || '0.000'}`;
+    hbdSavings.textContent = `${data.wallet?.hbdSavings || '0.000'}`;
+    hbdApr.textContent = `${data.wallet?.hbdApr || '15.00'}%`;
+
+    // Account value
+    accountValue.textContent = `$ ${data.wallet?.accountValue || '0.00'}`;
 
     accountData.classList.remove('hidden');
     this.currentAccount = data.username;

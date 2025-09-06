@@ -449,6 +449,243 @@ body {
   color: var(--primary-color);
 }
 
+/* Wallet Section */
+.wallet-section {
+  background: var(--card-background);
+  color: var(--text-primary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+
+.wallet-card h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.token-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.token-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.token-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.token-symbol {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.token-balance {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.token-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.token-details {
+  margin-top: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.detail-value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.value.negative {
+  color: var(--error-color);
+}
+
+.detail-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.effectiveness-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.effectiveness-text {
+  color: var(--text-secondary);
+}
+
+.effectiveness-value {
+  color: var(--success-color);
+  font-weight: 600;
+}
+
+.info-icon {
+  color: var(--accent-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.action-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.action-btn:hover {
+  background: #2980b9;
+}
+
+.stake-btn {
+  background: var(--success-color);
+}
+
+.stake-btn:hover {
+  background: #219a52;
+}
+
+.unstake-btn {
+  background: var(--error-color);
+}
+
+.unstake-btn:hover {
+  background: #c0392b;
+}
+
+.withdraw-btn {
+  background: var(--secondary-color);
+}
+
+.withdraw-btn:hover {
+  background: #1a252f;
+}
+
+.apr-info {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.apr-label {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.apr-text {
+  color: var(--text-secondary);
+}
+
+.apr-value {
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+.witnesses-link {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.witnesses-link:hover {
+  text-decoration: underline;
+}
+
+.account-value-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--border-color);
+}
+
+.account-value-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.value-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.account-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.value-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* HBD Section Specific Styling */
+.hbd-section .token-symbol {
+  color: var(--success-color);
+}
+
 /* Stats Section */
 .stats-section {
   width: 100%;
@@ -663,6 +900,78 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
+}
+
+/* Responsive styles for Wallet Section */
+@media (max-width: 768px) {
+  .wallet-section {
+    padding: 1rem;
   }
+  
+  .token-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .token-balance {
+    font-size: 1.1rem;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .detail-value {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .action-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+  }
+  
+  .apr-info {
+    font-size: 0.8rem;
+  }
+  
+  .account-value-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .account-value {
+    font-size: 1.2rem;
+  }
+  
+  .effectiveness-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wallet-card h2 {
+    font-size: 1rem;
+  }
+  
+  .token-symbol {
+    font-size: 1rem;
+  }
+  
+  .token-balance {
+    font-size: 1rem;
+  }
+  
+  .action-btn {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}
 }
