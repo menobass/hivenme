@@ -269,6 +269,7 @@ class HiveandMe {
           </div>
           
           <!-- Footer -->
+          <center>
           <footer class="footer">
             <div class="footer-content">
               <p class="footer-text">
@@ -283,6 +284,7 @@ class HiveandMe {
               </p>
             </div>
           </footer>
+          </center>
           
           <div id="loading" class="loading hidden">
             <div class="spinner"></div>
