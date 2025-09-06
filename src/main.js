@@ -183,26 +183,40 @@ class HiveandMe {
 
   async fetchAccountData(username) {
     try {
-      // Use a CORS proxy for development
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-      const apiUrl = `https://techcoderx.com/hafbe/account/${username}`;
+      // Try multiple API endpoints in order of preference
+      const apiEndpoints = [
+        // Try the corrected HAF backend endpoint
+        `https://techcoderx.com/haf/account/${username}`,
+        // Fallback to our Vercel proxy
+        `/api/hive-proxy?username=${username}`,
+        // Alternative Hive API endpoints
+        `https://api.hive.blog/rpc/get_accounts?names=["${username}"]`
+      ];
       
-      // For local development, we'll try multiple approaches
       let response;
+      let lastError;
       
-      try {
-        // First try direct API call (might work in production)
-        response = await fetch(apiUrl);
-      } catch (corsError) {
-        console.log('Direct API call failed due to CORS, trying alternative approaches...');
-        
-        // Try with a different endpoint structure or fall back to mock data
-        console.log('CORS Error:', corsError.message);
-        throw new Error('CORS blocked - using mock data for development');
+      for (const apiUrl of apiEndpoints) {
+        try {
+          console.log(`Trying API endpoint: ${apiUrl}`);
+          response = await fetch(apiUrl);
+          
+          if (response.ok) {
+            console.log(`Success with endpoint: ${apiUrl}`);
+            break;
+          } else {
+            console.log(`Endpoint ${apiUrl} returned status: ${response.status}`);
+            lastError = new Error(`API returned status: ${response.status}`);
+          }
+        } catch (error) {
+          console.log(`Endpoint ${apiUrl} failed:`, error.message);
+          lastError = error;
+          continue;
+        }
       }
       
-      if (!response.ok) {
-        throw new Error(`API request failed: ${response.status}`);
+      if (!response || !response.ok) {
+        throw lastError || new Error('All API endpoints failed');
       }
       
       const apiData = await response.json();
