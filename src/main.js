@@ -276,8 +276,10 @@ class HiveandMe {
               </p>
               <p class="footer-links">
                 <a href="https://hive.io" target="_blank">Hive.io</a> • 
-                <a href="https://github.com/menobass/hivenme" target="_blank">GitHub</a> • 
-                <a href="https://peakd.com" target="_blank">PeakD</a>
+                <a href="https://hive.blog" target="_blank">Hive.blog</a> • 
+                <a href="https://ecency.com" target="_blank">Ecency</a> • 
+                <a href="https://peakd.com" target="_blank">PeakD</a> • 
+                <a href="https://github.com/menobass/hivenme" target="_blank">GitHub</a>
               </p>
             </div>
           </footer>
