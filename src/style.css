@@ -1133,4 +1133,61 @@ button:focus-visible {
     font-size: 0.7rem;
   }
 }
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, var(--secondary-color), var(--dark-accent));
+  color: white;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-text {
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.footer-text strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.footer-links {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0;
+  }
+  
+  .footer-text {
+    font-size: 0.9rem;
+  }
+  
+  .footer-links {
+    font-size: 0.8rem;
+  }
+}
 }

@@ -184,6 +184,38 @@ class HiveandMe {
                 </div>
               </div>
               
+              <!-- Price Section -->
+              <div class="price-section">
+                <div class="price-blocks">
+                  <div class="price-block hbd-block">
+                    <div class="price-header">
+                      <span class="currency-name">HBD</span>
+                      <span class="price-icon">🏦</span>
+                    </div>
+                    <div class="price-value" id="hbdPrice">$0.00</div>
+                    <div class="price-change" id="hbdChange">0.00%</div>
+                  </div>
+                  
+                  <div class="price-block hive-block">
+                    <div class="price-header">
+                      <span class="currency-name">HIVE</span>
+                      <span class="price-icon">🐝</span>
+                    </div>
+                    <div class="price-value" id="hivePrice">$0.00</div>
+                    <div class="price-change" id="hiveChange">0.00%</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="stats-section">
+                <div class="stats-card">
+                  <h2>STATS</h2>
+                  <div id="statsData" class="stats-data">
+                    <!-- Stats data will be populated here -->
+                  </div>
+                </div>
+              </div>
+              
               <!-- Pending Author Rewards Section -->
               <div class="pending-rewards-section">
                 <div class="pending-rewards-card">
@@ -233,40 +265,22 @@ class HiveandMe {
                   </div>
                 </div>
               </div>
-              
-              <!-- Price Section -->
-              <div class="price-section">
-                <div class="price-blocks">
-                  <div class="price-block hbd-block">
-                    <div class="price-header">
-                      <span class="currency-name">HBD</span>
-                      <span class="price-icon">🏦</span>
-                    </div>
-                    <div class="price-value" id="hbdPrice">$0.00</div>
-                    <div class="price-change" id="hbdChange">0.00%</div>
-                  </div>
-                  
-                  <div class="price-block hive-block">
-                    <div class="price-header">
-                      <span class="currency-name">HIVE</span>
-                      <span class="price-icon">🐝</span>
-                    </div>
-                    <div class="price-value" id="hivePrice">$0.00</div>
-                    <div class="price-change" id="hiveChange">0.00%</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="stats-section">
-                <div class="stats-card">
-                  <h2>STATS</h2>
-                  <div id="statsData" class="stats-data">
-                    <!-- Stats data will be populated here -->
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
+          
+          <!-- Footer -->
+          <footer class="footer">
+            <div class="footer-content">
+              <p class="footer-text">
+                🐝 <strong>HiveandMe</strong> 2025 - Made for the Hive community with ❤️
+              </p>
+              <p class="footer-links">
+                <a href="https://hive.io" target="_blank">Hive.io</a> • 
+                <a href="https://github.com/menobass/hivenme" target="_blank">GitHub</a> • 
+                <a href="https://peakd.com" target="_blank">PeakD</a>
+              </p>
+            </div>
+          </footer>
           
           <div id="loading" class="loading hidden">
             <div class="spinner"></div>
